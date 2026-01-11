@@ -345,3 +345,26 @@ fstream   // Input + Output (read/write)
 ios::in | ios::out - in(input)/
 close(); // Close file
 ```
+```
+#include <iostream>
+using namespace std;
+class Parent {
+public:
+    void display() { cout << "P "; }
+};
+class Child : public Parent {
+public:
+    void display() { cout << "C "; }
+};
+int main() {
+    Parent *obj = new Child();
+    obj->display();
+    return 0;
+}
+// p -
+| Case                 | Output | Reason               |
+| -------------------- | ------ | -------------------- |
+| Non-virtual function | `P`    | Compile-time binding |
+| Virtual function     | `C`    | Runtime polymorphism |
+
+```
